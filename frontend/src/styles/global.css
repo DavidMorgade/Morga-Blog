@@ -180,6 +180,26 @@ hr {
 }
 
 
+/* FONTS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+blockquote,
+code,
+pre,
+input,
+textarea,
+button {
+  font-family: 'Inter', sans-serif;
+}
+
+
 
 /* nav styles */
 .hamburger {
