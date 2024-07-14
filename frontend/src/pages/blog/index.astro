@@ -5,29 +5,6 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const URL = 'http://localhost:1337'; // URL to the API
-
-type Post = {
-    attributes: {
-        title: string;
-        content: string;
-        reading_time: number;
-        slug: string;
-        createdAt:Date; 
-        updatedAt: Date;
-        publishedAt: Date;
-    }
-
-}
-
-const data = await fetch(`${URL}/api/posts`);
-
-const jsonData = await data.json();
-
-const posts: Post[] = jsonData.data;
-
-console.log(posts);
-
 ---
 
 <!doctype html>

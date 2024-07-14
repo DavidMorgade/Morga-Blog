@@ -6,7 +6,10 @@ import Hamburger from "./Hamburger.astro";
 
 <header>
     <nav class="flex items-center justify-between p-6">
-        <h2><a class="text-black" href="/">{SITE_TITLE}</a></h2>
+        <h2 class="m-0 flex items-center">
+            <a class="text-black font-semibold text-lg" href="/">{SITE_TITLE}</a
+            >
+        </h2>
         <Hamburger />
         <div class="nav-links">
             <HeaderLink href="/">Blog</HeaderLink>
