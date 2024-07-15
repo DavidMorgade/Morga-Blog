@@ -1,8 +1,6 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import BlogTopTitle from "../components/BlogTopTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/blog/PostCard.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { type GetPostsRequest, type Post } from "../types/postRequest";
 
@@ -15,40 +13,11 @@ const jsonData: GetPostsRequest = await data.json();
 const posts = jsonData.data;
 ---
 
-<!doctype html>
-<html lang="es">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <Header />
-        <main>
-            <BlogTopTitle />
-            <section class="px-8 mt-10">
-                <h3 class="text-xl font-bold">Últimas entradas</h3>
-                <ul class="mt-4">
-                    {
-                        posts.map((post: Post) => (
-                            <li class="mt-4">
-                                <a href={`/blog/${post.attributes.slug}/`}>
-                                    <img
-                                        src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
-                                        alt=""
-                                        class="w-full h-48 object-cover rounded-lg"
-                                    />
-                                    <h4 class="text-lg font-bold">
-                                        {post.attributes.title}
-                                    </h4>
-                                    <p class="text-sm text-gray-500">
-                                        {post.attributes.createdAt}
-                                    </p>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-            <Footer />
-        </main>
-    </body>
-</html>
+<BaseLayout>
+    <section class="px-8 mt-10">
+        <h3 class="text-xl font-bold">Últimas entradas</h3>
+        <ul class="mt-4">
+            {posts.map((post: Post) => <PostCard post={post} />)}
+        </ul>
+    </section>
+</BaseLayout>
