@@ -4,12 +4,14 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BlogTopTitle from "../components/BlogTopTitle.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <ViewTransitions transition:animate="fade" />
   </head>
   <body>
     <Header />

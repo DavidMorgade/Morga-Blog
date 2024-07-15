@@ -1,23 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PostCard from "../components/blog/PostCard.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { type GetPostsRequest, type Post } from "../types/postRequest";
-
-const URL = "http://localhost:1337"; // URL to the API
-
-const data = await fetch(`${URL}/api/posts?populate=featured_image`);
-
-const jsonData: GetPostsRequest = await data.json();
-
-const posts = jsonData.data;
+import BlogPostList from "../components/blog/BlogPostList.astro";
 ---
 
 <BaseLayout>
     <section class="px-8 mt-10">
-        <h3 class="text-xl font-bold">Últimas entradas</h3>
-        <ul class="mt-4">
-            {posts.map((post: Post) => <PostCard post={post} />)}
-        </ul>
+        <h3 class="text-xl font-bold my-4">Últimas entradas</h3>
+        <BlogPostList />
     </section>
 </BaseLayout>

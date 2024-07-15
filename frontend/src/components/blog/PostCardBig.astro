@@ -1,0 +1,25 @@
+---
+const { post } = Astro.props;
+
+const URL = "http://localhost:1337"; // URL to the API
+---
+
+<li class="mt-4 sm:hover:scale-105 sm:transition-all">
+  <a href={`/blog/${post.attributes.slug}/`}>
+    <img
+      src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
+      alt=""
+      class="w-full h-48 object-cover rounded-lg"
+    />
+    <p class="text-sm text-violet-700 my-2 font-bold">
+      {post.attributes.createdAt.split("T")[0]}
+    </p>
+    <h4 class="text-lg font-bold">
+      {post.attributes.title}
+    </h4>
+    <p class="text-sm text-gray-500">
+      {post.attributes.content.slice(0, 100) + "..."}
+    </p>
+    <slot />
+  </a>
+</li>

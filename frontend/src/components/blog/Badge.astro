@@ -1,0 +1,14 @@
+---
+interface Props {
+  badgeText: string;
+  color: string;
+  bgColor: string;
+}
+const { badgeText, color, bgColor } = Astro.props;
+---
+
+<div
+  class:list={["inline-block px-2 py-1 rounded-full", { bgColor }, { color }]}
+>
+  <p class="text-sm font-medium">{badgeText}</p>
+</div>
