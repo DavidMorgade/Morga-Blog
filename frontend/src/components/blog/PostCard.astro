@@ -4,7 +4,7 @@ const { post } = Astro.props;
 const URL = "http://localhost:1337"; // URL to the API
 ---
 
-<li class="my-4 sm:hover:scale-105 sm:transition-all">
+<li class="my-4 xl:my-0 sm:hover:scale-105 sm:transition-all">
   <a href={`/blog/${post.attributes.slug}/`}>
     <div class="sm:grid sm:grid-cols-2 sm:gap-8">
       <div class="">
