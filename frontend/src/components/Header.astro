@@ -2,24 +2,31 @@
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import Hamburger from "./Hamburger.astro";
+import Modal from "../components/header/Modal.astro";
 ---
 
 <header>
-    <nav class="flex items-center justify-between p-6">
-        <h2 class="m-0 flex items-center">
-            <a class="text-black font-semibold text-lg" href="/">{SITE_TITLE}</a
-            >
-        </h2>
-        <Hamburger />
-        <div class="nav-links">
-            <HeaderLink href="/">Blog</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
-            <HeaderLink href="/newsletter">Newsletter</HeaderLink>
-        </div>
-    </nav>
+  <nav class="flex items-center justify-between p-6">
+    <h2 class="m-0 flex items-center">
+      <a class="text-black font-semibold text-lg" href="/">{SITE_TITLE}</a>
+    </h2>
+    <Hamburger />
+    <Modal />
+    <div class="header-links gap-4 items-center hidden sm:flex">
+      <HeaderLink href="/">Blog</HeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href="/newsletter">Newsletter</HeaderLink>
+    </div>
+  </nav>
 </header>
 <script>
-    document.querySelector(".hamburger")?.addEventListener("click", () => {
-        document.querySelector(".nav-links")?.classList.toggle("expanded");
-    });
+  const headerModal = document.querySelector(".header-modal") as HTMLDivElement;
+  const tham = document.querySelector(".tham") as HTMLDivElement;
+  tham.addEventListener("click", () => {
+    tham.classList.toggle("tham-active");
+    headerModal.classList.toggle("hidden");
+  });
+  headerModal.addEventListener("click", () => {
+    tham.classList.remove("tham-active");
+  });
 </script>

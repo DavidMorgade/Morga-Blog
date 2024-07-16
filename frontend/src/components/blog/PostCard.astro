@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 const { post } = Astro.props;
 
 const URL = "http://localhost:1337"; // URL to the API
@@ -8,10 +9,12 @@ const URL = "http://localhost:1337"; // URL to the API
   <a href={`/blog/${post.attributes.slug}/`}>
     <div class="sm:grid sm:grid-cols-2 sm:gap-8">
       <div class="">
-        <img
+        <Image
           src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
-          alt=""
+          alt={post.attributes.featured_image.data.attributes.name}
           class="object-cover w-full h-48 rounded-lg sm:h-48 sm:rounded-lg"
+          width="250"
+          height="200"
         />
       </div>
       <div class="sm:flex sm:flex-col sm:gap-2">
