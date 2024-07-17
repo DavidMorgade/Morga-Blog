@@ -1,31 +1,24 @@
 ---
 import PostCard from "./PostCard.astro";
 import PostCardBig from "./PostCardBig.astro";
-import { type GetPostsRequest, type Post } from "../../types/postRequest";
 import Badge from "./Badge.astro";
+import {fetchPosts} from "../../helpers/fetchPosts"; 
+import { type SinglePost} from "../../types/postRequest";
 
-const URL = "http://localhost:1337"; // URL to the API
-
-const data = await fetch(
-  `${URL}/api/posts?populate=featured_image&populate=categories&sort=id:desc`,
-);
-
-const jsonData: GetPostsRequest = await data.json();
-
-const posts = jsonData.data;
+const posts : SinglePost[] = await fetchPosts();
 ---
-
+<section>
 <ul class="my-24 xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:gap-12  flex flex-col gap-4">
   <div class="xl:col-start-1 xl:col-end-2 xl:row-start-1 xl:row-end-3 ">
     <PostCardBig loading="eager" post={posts[0]} />
   </div>
   {
-    posts.map((post: Post, index: number) => {
+    posts.map((post, index: number) => {
       if (index === 0) return null;
       if (index === 3)
         return (
         <div class="xl:col-start-1 xl:col-end-3 ">
-            <PostCardBig loading="lazy" post={post}>
+            <PostCardBig loading="eager" post={post}>
               <Badge
               category="Programacion"
               />
@@ -42,3 +35,4 @@ const posts = jsonData.data;
     })
   }
 </ul>
+</section>

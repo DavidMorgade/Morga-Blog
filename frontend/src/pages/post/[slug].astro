@@ -1,0 +1,20 @@
+---
+import { fetchPosts } from "../../helpers/fetchPosts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+    const posts = await fetchPosts();
+    return posts.map((post) => {
+        return {
+            params: { slug: post.attributes.slug },
+            props: { post },
+        };
+    });
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout>
+    <h1>{post.attributes.title}</h1>
+</BaseLayout>

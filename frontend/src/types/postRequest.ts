@@ -1,13 +1,14 @@
-export interface GetPostsRequest {
-    data: Post[]
+export interface PostRequest {
+    data: SinglePost[]
+    meta: Meta
 }
 
-export interface Post {
+export interface SinglePost {
     id: number
-    attributes: PostAttributes
+    attributes: Attributes
 }
 
-export interface PostAttributes {
+export interface Attributes {
     title: string
     content: string
     reading_time: string
@@ -15,7 +16,9 @@ export interface PostAttributes {
     createdAt: string
     updatedAt: string
     publishedAt: string
+    render_content?: string
     featured_image: FeaturedImage
+    author: Author
     categories: Categories
 }
 
@@ -25,85 +28,18 @@ export interface FeaturedImage {
 
 export interface Data {
     id: number
-    attributes: ImageAttributes
+    attributes: Attributes2
 }
 
-export interface ImageAttributes {
+export interface Attributes2 {
     name: string
-    alternativeText: any
-    caption: any
     width: number
     height: number
-    formats: Formats
-    hash: string
-    ext: string
-    mime: string
-    size: number
-    url: string
-    previewUrl: any
-    provider: string
-    provider_metadata: any
-    createdAt: string
-    updatedAt: string
-}
-
-export interface Formats {
-    thumbnail: Thumbnail
-    medium: Medium
-    small: Small
-    large: Large
-}
-
-export interface Thumbnail {
-    name: string
-    hash: string
-    ext: string
-    mime: string
-    path: any
-    width: number
-    height: number
-    size: number
-    sizeInBytes: number
     url: string
 }
 
-export interface Medium {
-    name: string
-    hash: string
-    ext: string
-    mime: string
-    path: any
-    width: number
-    height: number
-    size: number
-    sizeInBytes: number
-    url: string
-}
-
-export interface Small {
-    name: string
-    hash: string
-    ext: string
-    mime: string
-    path: any
-    width: number
-    height: number
-    size: number
-    sizeInBytes: number
-    url: string
-}
-
-export interface Large {
-    name: string
-    hash: string
-    ext: string
-    mime: string
-    path: any
-    width: number
-    height: number
-    size: number
-    sizeInBytes: number
-    url: string
+export interface Author {
+    data: any
 }
 
 export interface Categories {
