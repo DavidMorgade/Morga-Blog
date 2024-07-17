@@ -1,7 +1,13 @@
 ---
 import { Image } from "astro:assets";
+import { type Post } from "../../types/postRequest"; // Import the Post
 
-const { post } = Astro.props;
+interface Props {
+  post: Post;
+  loading: "lazy" | "eager";
+}
+
+const { post, loading } = Astro.props;
 
 const URL = "http://localhost:1337"; // URL to the API
 ---
@@ -13,6 +19,7 @@ const URL = "http://localhost:1337"; // URL to the API
   >
     <Image
       src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
+      loading={loading}
       alt={post.attributes.featured_image.data.attributes.name}
       class="w-full h-48 object-cover rounded-lg xl:h-64 xl:rounded-lg"
       width="250"

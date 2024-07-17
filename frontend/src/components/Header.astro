@@ -20,13 +20,11 @@ import Modal from "../components/header/Modal.astro";
   </nav>
 </header>
 <script>
-  const headerModal = document.querySelector(".header-modal") as HTMLDivElement;
   const tham = document.querySelector(".tham") as HTMLDivElement;
+  const modal = document.getElementById("default-modal") as HTMLDivElement;
   tham.addEventListener("click", () => {
-    tham.classList.toggle("tham-active");
-    headerModal.classList.toggle("hidden");
-  });
-  headerModal.addEventListener("click", () => {
-    tham.classList.remove("tham-active");
+    console.log("clicked");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
   });
 </script>

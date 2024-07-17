@@ -1,6 +1,11 @@
 ---
+import { type Post } from "../../types/postRequest";
 import { Image } from "astro:assets";
-const { post } = Astro.props;
+interface Props {
+  post: Post;
+  loading: "lazy" | "eager";
+}
+const { post, loading } = Astro.props;
 
 const URL = "http://localhost:1337"; // URL to the API
 ---
@@ -15,6 +20,7 @@ const URL = "http://localhost:1337"; // URL to the API
           class="object-cover w-full h-48 rounded-lg sm:h-48 sm:rounded-lg"
           width="250"
           height="200"
+          loading={loading}
         />
       </div>
       <div class="sm:flex sm:flex-col sm:gap-2">

@@ -17,7 +17,7 @@ const posts = jsonData.data;
 
 <ul class="mt-8 xl:grid xl:grid-cols-2 xl:grid-rows-3 xl:gap-6 xl:h-[1000px]">
   <div class="xl:col-start-1 xl:col-end-2 xl:row-start-1 xl:row-end-3 ">
-    <PostCardBig post={posts[0]} />
+    <PostCardBig loading="eager" post={posts[0]} />
   </div>
   {
     posts.map((post: Post, index: number) => {
@@ -25,7 +25,7 @@ const posts = jsonData.data;
       if (index === 3)
         return (
         <div class="xl:col-start-1 xl:col-end-3 ">
-            <PostCardBig post={post}>
+            <PostCardBig loading="lazy" post={post}>
               <Badge
                 color="text-violet-700"
                 bgColor="text-violet-300"
@@ -38,7 +38,7 @@ const posts = jsonData.data;
       if (index > 4) return null;
       return (
         <div class=`sm:flex sm:items-center sm:justify-start md:items-center xl:items-start`>
-          <PostCard post={post} />
+          <PostCard loading="eager" post={post} />
         </div>
       );
     })
