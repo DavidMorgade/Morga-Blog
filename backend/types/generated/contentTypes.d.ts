@@ -840,7 +840,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     slug: Attribute.String;
     posts: Attribute.Relation<
       'api::category.category',
-      'oneToMany',
+      'manyToMany',
       'api::post.post'
     >;
     createdAt: Attribute.DateTime;
@@ -867,6 +867,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -877,9 +878,9 @@ export interface ApiPostPost extends Schema.CollectionType {
     featured_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     reading_time: Attribute.BigInteger;
     slug: Attribute.String;
-    category: Attribute.Relation<
+    categories: Attribute.Relation<
       'api::post.post',
-      'manyToOne',
+      'manyToMany',
       'api::category.category'
     >;
     author: Attribute.Relation<

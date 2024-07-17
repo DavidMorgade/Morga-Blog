@@ -5,26 +5,29 @@ import Hamburger from "./Hamburger.astro";
 import Modal from "../components/header/Modal.astro";
 ---
 
-<header>
-  <nav class="flex items-center justify-between p-6">
-    <h2 class="m-0 flex items-center">
-      <a class="text-black font-semibold text-lg" href="/">{SITE_TITLE}</a>
-    </h2>
-    <Hamburger />
-    <Modal />
-    <div class="header-links gap-4 items-center hidden sm:flex">
-      <HeaderLink href="/">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="/newsletter">Newsletter</HeaderLink>
-    </div>
-  </nav>
+<header class="px-2 sm:px-6 xl:px-16">
+    <nav class="flex items-center justify-between p-6">
+        <h2 class="m-0 flex items-center">
+            <a class="text-black font-semibold text-lg" href="/">{SITE_TITLE}</a
+            >
+        </h2>
+        <Hamburger />
+        <Modal />
+        <div
+            class="header-links sm:gap-8 md:gap-10 xl:gap-16 items-center hidden sm:flex"
+        >
+            <HeaderLink href="/">Blog</HeaderLink>
+            <HeaderLink href="/about">About</HeaderLink>
+            <HeaderLink href="/newsletter">Newsletter</HeaderLink>
+        </div>
+    </nav>
 </header>
 <script>
-  const tham = document.querySelector(".tham") as HTMLDivElement;
-  const modal = document.getElementById("default-modal") as HTMLDivElement;
-  tham.addEventListener("click", () => {
-    console.log("clicked");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-  });
+    const tham = document.querySelector(".tham") as HTMLDivElement;
+    const modal = document.getElementById("default-modal") as HTMLDivElement;
+    tham.addEventListener("click", () => {
+        console.log("clicked");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+    });
 </script>

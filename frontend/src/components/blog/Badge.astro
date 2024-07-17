@@ -1,14 +1,18 @@
 ---
+import determineCategory from "../../helpers/determine-category";
 interface Props {
-  badgeText: string;
-  color: string;
-  bgColor: string;
+    category: string;
 }
-const { badgeText, color, bgColor } = Astro.props;
+const { category } = Astro.props;
+
+const [bgColor, color] = determineCategory(category);
 ---
 
 <div
-  class:list={["inline-block px-2 py-1 rounded-full", { bgColor }, { color }]}
+    class:list={[
+        "inline-flex self-start flex-col items-center px-2 py-1 rounded-lg",
+        `${bgColor} ${color}`,
+    ]}
 >
-  <p class="text-sm font-medium">{badgeText}</p>
+    <p class="text-sm font-semibold">{category}</p>
 </div>

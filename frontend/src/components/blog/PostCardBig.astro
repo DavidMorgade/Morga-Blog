@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import { type Post } from "../../types/postRequest"; // Import the Post
+import { type Post } from "../../types/postRequest";
+import Badge from "./Badge.astro"; // Import the Badge component
 
 interface Props {
-  post: Post;
-  loading: "lazy" | "eager";
+    post: Post;
+    loading: "lazy" | "eager";
 }
 
 const { post, loading } = Astro.props;
@@ -13,27 +14,33 @@ const URL = "http://localhost:1337"; // URL to the API
 ---
 
 <li class="mt-4 sm:hover:scale-105 sm:transition-all xl:mt-0">
-  <a
-    href={`/blog/${post.attributes.slug}/`}
-    class="xl:flex xl:flex-col justify-start xl:gap-4"
-  >
-    <Image
-      src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
-      loading={loading}
-      alt={post.attributes.featured_image.data.attributes.name}
-      class="w-full h-48 object-cover rounded-lg xl:h-64 xl:rounded-lg"
-      width="250"
-      height="200"
-    />
-    <p class="text-sm text-violet-700 my-2 font-bold">
-      {post.attributes.createdAt.split("T")[0]}
-    </p>
-    <h4 class="text-lg font-bold">
-      {post.attributes.title}
-    </h4>
-    <p class="text-sm text-gray-500">
-      {post.attributes.content.slice(0, 200) + "..."}
-    </p>
-    <slot />
-  </a>
+    <a
+        href={`/blog/${post.attributes.slug}/`}
+        class="flex flex-col justify-start gap-2 sm:gap-4"
+    >
+        <Image
+            src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
+            loading={loading}
+            alt={post.attributes.featured_image.data.attributes.name}
+            class="w-full h-48 object-cover rounded-lg xl:h-64 xl:rounded-lg"
+            width="250"
+            height="200"
+        />
+        <p class="text-sm text-violet-700 my-2 font-bold">
+            {post.attributes.createdAt.split("T")[0]}
+        </p>
+        <h4 class="text-lg font-bold">
+            {post.attributes.title}
+        </h4>
+        <p class="text-sm text-gray-500">
+            {post.attributes.content.slice(0, 200) + "..."}
+        </p>
+        <div class="flex items-center justify-start gap-2">
+            {
+                post.attributes.categories.data.map((category) => (
+                    <Badge category={category.attributes.name} />
+                ))
+            }
+        </div>
+    </a>
 </li>

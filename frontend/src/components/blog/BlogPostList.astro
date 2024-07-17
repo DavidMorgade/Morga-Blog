@@ -7,7 +7,7 @@ import Badge from "./Badge.astro";
 const URL = "http://localhost:1337"; // URL to the API
 
 const data = await fetch(
-  `${URL}/api/posts?populate=featured_image&sort=id:desc`,
+  `${URL}/api/posts?populate=featured_image&populate=categories&sort=id:desc`,
 );
 
 const jsonData: GetPostsRequest = await data.json();
@@ -15,7 +15,7 @@ const jsonData: GetPostsRequest = await data.json();
 const posts = jsonData.data;
 ---
 
-<ul class="mt-8 xl:grid xl:grid-cols-2 xl:grid-rows-3 xl:gap-6 xl:h-[1000px]">
+<ul class="mt-8 xl:grid xl:grid-cols-2 xl:grid-rows-3 xl:gap-10 xl:h-[1000px] flex flex-col gap-4">
   <div class="xl:col-start-1 xl:col-end-2 xl:row-start-1 xl:row-end-3 ">
     <PostCardBig loading="eager" post={posts[0]} />
   </div>
@@ -27,9 +27,7 @@ const posts = jsonData.data;
         <div class="xl:col-start-1 xl:col-end-3 ">
             <PostCardBig loading="lazy" post={post}>
               <Badge
-                color="text-violet-700"
-                bgColor="text-violet-300"
-                badgeText="design"
+              category="Programacion"
               />
             </PostCardBig>
           </div>

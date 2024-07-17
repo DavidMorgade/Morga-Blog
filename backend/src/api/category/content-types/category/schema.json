@@ -19,9 +19,9 @@
     },
     "posts": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::post.post",
-      "mappedBy": "category"
+      "mappedBy": "categories"
     }
   }
 }

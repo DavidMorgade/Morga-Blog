@@ -16,8 +16,7 @@ export interface PostAttributes {
     updatedAt: string
     publishedAt: string
     featured_image: FeaturedImage
-    category: Category
-    author: Author
+    categories: Categories
 }
 
 export interface FeaturedImage {
@@ -107,11 +106,31 @@ export interface Large {
     url: string
 }
 
-export interface Category {
-    data: any
+export interface Categories {
+    data: Daum2[]
 }
 
-export interface Author {
-    data: any
+export interface Daum2 {
+    id: number
+    attributes: Attributes3
+}
+
+export interface Attributes3 {
+    name: string
+    slug: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+}
+
+export interface Meta {
+    pagination: Pagination
+}
+
+export interface Pagination {
+    page: number
+    pageSize: number
+    pageCount: number
+    total: number
 }
 
