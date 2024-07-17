@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostList from "../components/blog/BlogPostList.astro";
+import AllBlogPostList from "../components/blog/AllBlogPostList.astro";
 ---
 
 <BaseLayout>
     <section class="px-6 mt-10 sm:px-10 md:px-12 xl:px-24">
         <h3 class="text-xl font-bold my-4">Últimas entradas</h3>
         <BlogPostList />
+        <h3 class="text-xl font-bold my-4">Todas las entradas</h3>
+        <AllBlogPostList />
     </section>
 </BaseLayout>
