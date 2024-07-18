@@ -46,6 +46,9 @@
       "relation": "oneToOne",
       "target": "api::author.author",
       "inversedBy": "post"
+    },
+    "render_content": {
+      "type": "richtext"
     }
   }
 }

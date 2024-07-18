@@ -888,6 +888,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'oneToOne',
       'api::author.author'
     >;
+    render_content: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
