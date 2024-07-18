@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { type SinglePost } from "../../types/postRequest";
 import Badge from "./Badge.astro"; // Import the Badge component
+import { PRODUCTION_URL as URL } from "../../consts";
 
 interface Props {
     post: SinglePost;
@@ -9,8 +10,6 @@ interface Props {
 }
 
 const { post, loading } = Astro.props;
-
-const URL = "http://localhost:1337"; // URL to the API
 ---
 
 <li class="mt-4 sm:hover:scale-105 sm:transition-all xl:mt-0">
