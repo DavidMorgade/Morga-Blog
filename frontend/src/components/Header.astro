@@ -13,7 +13,6 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
         <h2 class="m-0 flex items-center">
             <a class="font-semibold text-lg" href="/">{SITE_TITLE}</a>
         </h2>
-        <Hamburger />
         <Modal />
         <div
             class="header-links sm:gap-8 md:gap-10 xl:gap-16 items-center hidden sm:flex"
@@ -21,8 +20,9 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
             <HeaderLink href="/">Blog</HeaderLink>
             <HeaderLink href="/about">About</HeaderLink>
             <HeaderLink href="/newsletter">Newsletter</HeaderLink>
-            <ThemeSwitcher />
         </div>
+        <ThemeSwitcher />
+        <Hamburger />
     </nav>
 </header>
 <script>

@@ -1,0 +1,175 @@
+---
+import { marked } from "marked";
+import { format } from "date-fns";
+import { UPLOADS_URL } from "../consts";
+
+const { post } = Astro.props;
+
+console.log(post.attributes.reading_time);
+
+const {
+    featured_image,
+    title,
+    render_content,
+    author,
+    reading_time,
+    publishedAt,
+} = post.attributes;
+---
+
+<div class="text-black dark:text-white container mx-auto">
+    <div class="w-full flex justify-start rounded-md sm:mx-6 md:mx-10 lg:mx-20">
+        <a
+            href={`/`}
+            class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-sky-500 hover:bg-sky-200 dark:bg-green-500 dark:hover:bg-green-300 transition"
+        >
+            Volver
+        </a>
+    </div>
+    <div class="my-4 text-center">
+        <h1 class="text-center text-4xl leading-tight my-4 font-bold">
+            {title}
+        </h1>
+        <div class="flex justify-center items-center space-x-2">
+            <span class="flex space-x-2 items-center overflow-hidden">
+                <img
+                    class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                    alt="author picture"
+                    src=`${UPLOADS_URL}${author?.data.attributes.image.data.attributes.url}`
+                />
+                <p class="font-medium text-xs text-gray-600 cursor-pointer">
+                    {author?.name}
+                </p>
+            </span>
+            <span>&middot;</span>
+            <span>{format(new Date(publishedAt), "MM/dd/yyyy")}</span>
+            <span>&middot;</span>
+            <span>{reading_time} minutes</span>
+        </div>
+    </div>
+    <div class="rounded-md h-56 w-full overflow-hidden">
+        <img
+            class="object-cover w-full h-full"
+            src=`${UPLOADS_URL}${featured_image.data.attributes.url}`
+        />
+    </div>
+    <article class="prose max-w-full m-4 sm:mx-6 md:mx-10 lg:mx-20">
+        <div class="rich-text" set:html={marked.parse(render_content)} />
+    </article>
+</div>
+
+<style is:global>
+    /*******************************************
+  Rich Text Styles
+  *******************************************/
+
+    /* Headers */
+    article .rich-text h1 {
+        @apply text-4xl font-bold mb-8;
+    }
+
+    article .rich-text h2 {
+        @apply text-3xl font-bold mb-8;
+    }
+
+    article .rich-text h3 {
+        @apply text-2xl font-bold mb-6;
+    }
+
+    article .rich-text h4 {
+        @apply text-xl font-bold mb-4;
+    }
+
+    article.rich-text h5 {
+        @apply text-lg font-bold mb-4;
+    }
+
+    article .rich-text h6 {
+        @apply text-base font-bold mb-4;
+    }
+
+    /* Horizontal rules */
+    article .rich-text hr {
+        @apply my-8;
+    }
+
+    article .rich-text a {
+        @apply underline transition text-xl leading-relaxed hover:text-blue-400 dark:hover:text-green-400;
+    }
+
+    /* Typographic replacements */
+    article .rich-text p {
+        @apply mb-8 text-xl leading-relaxed;
+    }
+
+    /* Emphasis */
+    article .rich-text strong {
+        @apply font-bold text-xl leading-relaxed;
+    }
+
+    article .rich-text em {
+        @apply italic text-xl leading-relaxed;
+    }
+
+    article .rich-text del {
+        @apply line-through text-xl leading-relaxed;
+    }
+
+    /* Blockquotes */
+    article .rich-text blockquote {
+        @apply border-l-4 border-gray-400 pl-4 py-2 mb-4;
+    }
+
+    /* Lists */
+    article .rich-text ul {
+        @apply list-disc pl-4 mb-4;
+    }
+
+    article .rich-text ol {
+        @apply list-decimal pl-4 mb-4;
+    }
+
+    article .rich-text li {
+        @apply mb-2;
+    }
+
+    article .rich-text li > ul {
+        @apply list-disc pl-4 mb-2;
+    }
+
+    article.rich-text li > ol {
+        @apply list-decimal pl-4 mb-2;
+    }
+
+    /* Code blocks */
+    article .rich-text pre {
+        @apply rounded p-4  my-6;
+    }
+
+    article .rich-text code {
+        @apply rounded px-2 py-1;
+    }
+
+    /* Tables */
+    article .rich-text table {
+        @apply w-full border-collapse text-gray-800 my-6;
+    }
+
+    article .rich-text th {
+        @apply text-left py-2 px-4 font-semibold border-b;
+    }
+
+    article .rich-text td {
+        @apply py-2 px-4 border-b;
+    }
+
+    /* Images */
+    article .rich-text img {
+        @apply w-full object-cover rounded-xl my-6;
+    }
+
+    /* Custom containers */
+    article .rich-text .warning {
+        @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
+    }
+</style>

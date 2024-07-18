@@ -1,6 +1,7 @@
 ---
 import { fetchPosts } from "../../helpers/fetchPosts";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SingleBlogItem from "../../layouts/SingleBlogItem.astro";
 
 export async function getStaticPaths() {
     const posts = await fetchPosts();
@@ -16,5 +17,5 @@ const { post } = Astro.props;
 ---
 
 <BaseLayout>
-    <h1>{post.attributes.title}</h1>
+    <SingleBlogItem post={post} />
 </BaseLayout>

@@ -17,25 +17,15 @@ import Footer from "../components/Footer.astro";
         </main>
         <Footer />
         <script is:inline>
-            const allTogglers = document.querySelectorAll(".toggler");
-            const allTogglersArray = Array.from(allTogglers);
-            console.log(allTogglers);
+            const toggler = document.querySelector(".toggler");
             document.addEventListener("astro:after-swap", () => {
                 if (localStorage.getItem("theme") === "dark")
                     document.documentElement.classList.toggle("dark", true);
-
-                //TODO fix this fucking shit
-                if (
-                    allTogglersArray.some((toggler) =>
-                        toggler.hasAttribute("onclick"),
-                    )
-                )
-                    console.log("Togglers have onclick");
-                allTogglers.forEach((toggler) => {
-                    toggler.addEventListener("click", handleToggleClick);
-                });
+                if (!document.querySelector(".toggler").hasAttribute("click"))
+                    document
+                        .querySelector(".toggler")
+                        .addEventListener("click", handleToggleClick);
             });
-
             const theme = (() => {
                 if (
                     typeof localStorage !== "undefined" &&
@@ -64,10 +54,7 @@ import Footer from "../components/Footer.astro";
                 const isDark = element.classList.contains("dark");
                 localStorage.setItem("theme", isDark ? "dark" : "light");
             };
-
-            document.querySelectorAll(".toggler").forEach((toggler) => {
-                toggler.addEventListener("click", handleToggleClick);
-            });
+            toggler.addEventListener("click", handleToggleClick);
         </script>
     </body>
 </html>
