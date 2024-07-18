@@ -9,16 +9,55 @@ import { ViewTransitions } from "astro:transitions";
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <ViewTransitions transition:animate="fade" />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <BlogTopTitle />
-      <slot />
-      <Footer />
-    </main>
-  </body>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <ViewTransitions transition:animate="fade" />
+    </head>
+    <body class="bg-white dark:bg-slate-950 dark:text-white">
+        <Header />
+        <main class="">
+            <slot />
+        </main>
+        <Footer />
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+
+            if (theme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                document.documentElement.classList.add("dark");
+            }
+            window.localStorage.setItem("theme", theme);
+            // Toggle Dark Functionality
+            const toggler = document.querySelectorAll(".toggler");
+
+            // Toggle Dark Function
+            const toggleDark = () => {
+                toggler.forEach((el) => {
+                    el.addEventListener("click", () => {
+                        console.log("clicked");
+                        if (theme === "light") {
+                            document.documentElement.classList.add("dark");
+                            window.localStorage.setItem("theme", "dark");
+                        } else if (theme === "dark") {
+                            document.documentElement.classList.remove("dark");
+                            window.localStorage.setItem("theme", "light");
+                        }
+                    });
+                });
+            };
+            toggleDark();
+        </script>
+    </body>
 </html>

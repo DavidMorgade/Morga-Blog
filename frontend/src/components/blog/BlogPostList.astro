@@ -8,7 +8,7 @@ import { type SinglePost} from "../../types/postRequest";
 const posts : SinglePost[] = await fetchPosts();
 ---
 <section>
-<ul class="my-24 xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:gap-12  flex flex-col gap-4">
+<ul class="my-12 xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:gap-12  flex flex-col gap-4">
   <div class="xl:col-start-1 xl:col-end-2 xl:row-start-1 xl:row-end-3 ">
     <PostCardBig loading="eager" post={posts[0]} />
   </div>

@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPostList from "../components/blog/BlogPostList.astro";
+import BlogTopTitle from "../components/BlogTopTitle.astro";
 import AllBlogPostList from "../components/blog/AllBlogPostList.astro";
 ---
 
 <BaseLayout>
+    <BlogTopTitle />
     <section class="px-6 mt-10 sm:px-10 md:px-12 xl:px-24">
         <h3 class="text-2xl font-semibold my-4">Últimas entradas</h3>
         <BlogPostList />

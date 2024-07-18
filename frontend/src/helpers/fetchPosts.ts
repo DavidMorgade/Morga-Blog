@@ -13,6 +13,5 @@ export async function fetchPosts() {
         console.error(data);
         throw new Error('Failed to fetch API');
     }
-    console.log(postArray);
     return postArray;
 }

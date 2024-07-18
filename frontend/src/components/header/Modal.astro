@@ -1,50 +1,62 @@
 ---
 import CloseButton from "../../components/CloseButton.astro";
+import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 ---
 
 <div
-  transition:persist
-  id="default-modal"
-  tabindex="-1"
-  aria-hidden="true"
-  class="hidden flex-col header-modal bg-neutral-900 scrollbar-hide overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-screen"
+    transition:persist
+    id="default-modal"
+    tabindex="-1"
+    aria-hidden="true"
+    class="hidden flex-col text-black dark:text-white header-modal bg-gray-50 dark:bg-slate-950 scrollbar-hide overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-screen"
 >
-  <div class="text-lg">
-    <h2 class="text-white font-bold mb-14">CódigoMorga</h2>
-    <nav class="flex flex-col items-center justify-between h-full">
-      <ul
-        class="flex flex-col justify-between items-center text-white font-normal gap-8"
-      >
-        <li class="modal-link hover:font-bold hover:scale-110 transition-all">
-          <a href="/">Blog</a>
-        </li>
-        <li class="modal-link hover:font-bold hover:scale-110 transition-all">
-          <a href="/about">About</a>
-        </li>
-        <li class="modal-link hover:font-bold hover:scale-110 transition-all">
-          <a href="/newsletter">Newsletter</a>
-        </li>
-      </ul>
-      <CloseButton />
-    </nav>
-  </div>
+    <div class="text-lg">
+        <h2 class="font-bold mb-14">CódigoMorga</h2>
+        <nav class="flex flex-col items-center justify-between h-full">
+            <ul
+                class="flex flex-col justify-between items-center font-normal gap-8"
+            >
+                <li
+                    class="modal-link hover:font-bold hover:scale-110 transition-all"
+                >
+                    <a href="/">Blog</a>
+                </li>
+                <li
+                    class="modal-link hover:font-bold hover:scale-110 transition-all"
+                >
+                    <a href="/about">About</a>
+                </li>
+                <li
+                    class="modal-link hover:font-bold hover:scale-110 transition-all"
+                >
+                    <a href="/newsletter">Newsletter</a>
+                </li>
+            </ul>
+            <CloseButton />
+            <ThemeSwitcher />
+        </nav>
+    </div>
 </div>
 <script>
-  const links = document.querySelectorAll(".modal-link a");
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      const modal = document.getElementById("default-modal");
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      modal.setAttribute("aria-hidden", "true");
-      console.log(document.getElementById("default-modal"));
+    const links = document.querySelectorAll(".modal-link a");
+    links.forEach((link) => {
+        link.addEventListener("click", () => {
+            const modal = document.getElementById(
+                "default-modal",
+            ) as HTMLDivElement;
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            modal.setAttribute("aria-hidden", "true");
+            console.log(document.getElementById("default-modal"));
+        });
     });
-  });
-  const closeModal = document.querySelector(".close-modal");
-  const modal = document.getElementById("default-modal");
-  closeModal.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    modal.setAttribute("aria-hidden", "true");
-  });
+    const closeModal = document.querySelector(
+        ".close-modal",
+    ) as HTMLButtonElement;
+    const modal = document.getElementById("default-modal") as HTMLDivElement;
+    closeModal.addEventListener("click", () => {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        modal.setAttribute("aria-hidden", "true");
+    });
 </script>

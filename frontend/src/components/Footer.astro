@@ -3,9 +3,11 @@ import SocialLinkList from "../components/footer/SocialLinkList.astro";
 const today = new Date();
 ---
 
-<footer class="my-8 flex flex-col items-center gap-4 xl:mt-40">
-  <SocialLinkList />
-  <p class="text-center">
-    &copy; {today.getFullYear()} David Morgade Gil. Todos los derechos reservados.
-  </p>
+<footer
+    class="bg-gray-50 dark:bg-slate-950 my-8 flex flex-col items-center gap-4 xl:mt-40"
+>
+    <SocialLinkList />
+    <p class="text-center">
+        &copy; {today.getFullYear()} David Morgade Gil. Todos los derechos reservados.
+    </p>
 </footer>
