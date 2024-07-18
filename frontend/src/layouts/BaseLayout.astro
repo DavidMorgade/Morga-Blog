@@ -39,6 +39,8 @@ import { ViewTransitions } from "astro:transitions";
                 document.documentElement.classList.add("dark");
             }
             window.localStorage.setItem("theme", theme);
+
+            let localStorageTheme = window.localStorage.getItem("theme");
             // Toggle Dark Functionality
             const toggler = document.querySelectorAll(".toggler");
 
@@ -46,13 +48,14 @@ import { ViewTransitions } from "astro:transitions";
             const toggleDark = () => {
                 toggler.forEach((el) => {
                     el.addEventListener("click", () => {
-                        console.log("clicked");
-                        if (theme === "light") {
+                        if (localStorageTheme === "light") {
                             document.documentElement.classList.add("dark");
                             window.localStorage.setItem("theme", "dark");
-                        } else if (theme === "dark") {
+                            localStorageTheme = "dark";
+                        } else {
                             document.documentElement.classList.remove("dark");
                             window.localStorage.setItem("theme", "light");
+                            localStorageTheme = "light";
                         }
                     });
                 });
