@@ -1,7 +1,7 @@
 ---
 import { marked } from "marked";
 import { format } from "date-fns";
-import { LONG_API_URL_PRODUCTION, PRODUCTION_URL } from "../consts";
+import { URL, URL_LONG } from "../consts";
 
 const { post } = Astro.props;
 
@@ -13,7 +13,6 @@ const {
     reading_time,
     publishedAt,
 } = post.attributes;
-console.log(author.data.attributes);
 ---
 
 <div class="text-black dark:text-white container mx-auto">
@@ -34,7 +33,7 @@ console.log(author.data.attributes);
                 <img
                     class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
                     alt="author picture"
-                    src=`${PRODUCTION_URL}${author?.data.attributes.image.data.attributes.url}`
+                    src=`${URL}${author?.data.attributes.image.data.attributes.url}`
                 />
                 <p class="font-medium text-xs text-gray-600 cursor-pointer">
                     {author?.name}
@@ -49,7 +48,7 @@ console.log(author.data.attributes);
     <div class="rounded-md h-56 w-full overflow-hidden">
         <img
             class="object-cover w-full h-full"
-            src=`${PRODUCTION_URL}${featured_image.data.attributes.url}`
+            src=`${URL}${featured_image.data.attributes.url}`
         />
     </div>
     <article class="prose max-w-full m-4 sm:mx-6 md:mx-10 lg:mx-20">

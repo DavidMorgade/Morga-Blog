@@ -7,8 +7,7 @@ interface Props {
     loading: "lazy" | "eager";
 }
 const { post, loading } = Astro.props;
-
-const URL = "http://localhost:1337"; // URL to the API
+import { URL } from "../../consts";
 ---
 
 <li class="my-4 xl:my-0 sm:hover:scale-105 sm:transition-all">

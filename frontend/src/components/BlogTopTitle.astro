@@ -1,7 +1,15 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <div class="border-solid border-2 w-full">
     <h1
         class="font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-9xl xl text-center py-4"
     >
-        El Blog del Morga
+        {title}
     </h1>
 </div>
