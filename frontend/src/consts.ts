@@ -18,3 +18,5 @@ const LONG_API_URL_PRODUCTION = `${PRODUCTION_URL}/api/posts?populate[featured_i
 
 export const URL_LONG = isProd ? LONG_API_URL_PRODUCTION : LONG_API_URL;
 export const URL = isProd ? PRODUCTION_URL : UPLOADS_URL;
+
+export const URL_PORTFOLIO = 'https://www.codigomorga.es/portfolio';

@@ -4,6 +4,8 @@ import { SITE_TITLE } from "../consts";
 import Hamburger from "./Hamburger.astro";
 import Modal from "../components/header/Modal.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
+
+import { URL_PORTFOLIO as PORTFOLIO } from "../consts";
 ---
 
 <header
@@ -18,7 +20,7 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
             class="header-links sm:gap-8 md:gap-10 xl:gap-16 items-center hidden sm:flex"
         >
             <HeaderLink href="/">Blog</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
+            <HeaderLink href={PORTFOLIO}>Portfolio</HeaderLink>
             <HeaderLink href="/newsletter">Newsletter</HeaderLink>
         </div>
         <ThemeSwitcher />
