@@ -41,14 +41,14 @@
       "target": "api::category.category",
       "inversedBy": "posts"
     },
-    "author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::author.author",
-      "inversedBy": "post"
-    },
     "render_content": {
       "type": "richtext"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "posts"
     }
   }
 }

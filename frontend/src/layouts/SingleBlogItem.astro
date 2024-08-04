@@ -13,6 +13,15 @@ const {
     reading_time,
     publishedAt,
 } = post.attributes;
+
+console.log(
+    featured_image,
+    title,
+    render_content,
+    author,
+    reading_time,
+    publishedAt,
+);
 ---
 
 <div class="text-black dark:text-white container mx-auto">
@@ -33,7 +42,7 @@ const {
                 <img
                     class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
                     alt="author picture"
-                    src=`${URL}${author?.data.attributes.image.data.attributes.url}`
+                    src=`${URL}${author?.data?.attributes?.image?.data?.attributes?.url}`
                 />
                 <p class="font-medium text-xs text-gray-600 cursor-pointer">
                     {author?.name}

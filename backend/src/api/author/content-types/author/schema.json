@@ -4,7 +4,8 @@
   "info": {
     "singularName": "author",
     "pluralName": "authors",
-    "displayName": "author"
+    "displayName": "author",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,24 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "bio": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "post": {
+    "posts": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "author"
     }
