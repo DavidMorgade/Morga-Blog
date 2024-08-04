@@ -833,13 +833,14 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    slug: Attribute.String;
+    name: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
     posts: Attribute.Relation<
       'api::category.category',
       'manyToMany',
@@ -875,17 +876,18 @@ export interface ApiPostPost extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.Text;
-    featured_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    reading_time: Attribute.BigInteger;
-    slug: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Text & Attribute.Required;
+    featured_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    reading_time: Attribute.BigInteger & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
     categories: Attribute.Relation<
       'api::post.post',
       'manyToMany',
       'api::category.category'
     >;
-    render_content: Attribute.RichText;
+    render_content: Attribute.RichText & Attribute.Required;
     author: Attribute.Relation<
       'api::post.post',
       'manyToOne',

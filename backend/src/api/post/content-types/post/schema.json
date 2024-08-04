@@ -13,15 +13,17 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "content": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "featured_image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -30,10 +32,12 @@
       ]
     },
     "reading_time": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "categories": {
       "type": "relation",
@@ -42,7 +46,8 @@
       "inversedBy": "posts"
     },
     "render_content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "author": {
       "type": "relation",

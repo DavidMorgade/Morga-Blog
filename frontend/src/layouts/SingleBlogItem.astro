@@ -24,8 +24,8 @@ console.log(
 );
 ---
 
-<div class="text-black dark:text-white container mx-auto">
-    <div class="w-full flex justify-start rounded-md sm:mx-6 md:mx-10 lg:mx-20">
+<div class="text-black dark:text-white container my-16 sm:mx-auto">
+    <div class="w-full flex sm:justify-start justify-center rounded-md">
         <a
             href={`/`}
             class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-sky-500 hover:bg-sky-200 dark:bg-green-500 dark:hover:bg-green-300 transition"
@@ -60,7 +60,7 @@ console.log(
             src=`${URL}${featured_image.data.attributes.url}`
         />
     </div>
-    <article class="prose max-w-full m-4 sm:mx-6 md:mx-10 lg:mx-20">
+    <article class="prose max-w-full m-4">
         <div class="rich-text" set:html={marked.parse(render_content)} />
     </article>
 </div>
