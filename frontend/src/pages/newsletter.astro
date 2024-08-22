@@ -1,7 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import MainContentLayout from "../layouts/MainContentLayout.astro";
 ---
 
 <BaseLayout>
-    <h1 class="text-center text-violet-700 font-bold">Newsletter</h1>
+    <MainContentLayout>
+        <h1 class="text-center text-violet-700 font-bold">Newsletter</h1>
+        <h2 class="text-center font-bold text-6xl mt-30">
+            Lo ultimo en tecnologia, en espaniol y en tu correo
+        </h2>
+        <div class="w-1/2">
+            <p class="text-center text-xl">
+                Suscribete a la newsletter para recibir las publicaciones del
+                blog directamente en tu correo electronico
+            </p>
+        </div>
+    </MainContentLayout>
 </BaseLayout>

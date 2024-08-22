@@ -2,27 +2,44 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogTopTitle from "../components/BlogTopTitle.astro";
 import { Image } from "astro:assets";
+import MainContentLayout from "../layouts/MainContentLayout.astro";
 import fotoMia from "../images/fotomia.jpg";
+import ListSkills from "../components/about/ListSkills.astro";
+import ListEducation from "../components/about/ListEducation.astro";
 ---
 
 <BaseLayout>
-  <BlogTopTitle title="David Morgade" />
-  <Image
-    class:list={[
-      "w-full",
-      "",
-      "object-fit",
-      "rounded-lg",
-      "h-96",
-      "xl:rounded-lg",
-    ]}
-    src={fotoMia}
-    loading="lazy"
-    alt="foto de David Morgade"
-    class="w-full h-48 object-cover rounded-lg xl:h-64 xl:rounded-lg"
-    aspect-ratio="16/9"
-    height={200}
-    widths={[200, 400, 800, 1200, 1600]}
-  />
-  <h1>Pagina about</h1>
+    <BlogTopTitle title="David Morgade" />
+    <!-- <Image -->
+    <!--   class:list={[ -->
+    <!--     "w-full", -->
+    <!--     "", -->
+    <!--     "object-fit", -->
+    <!--     "rounded-lg", -->
+    <!--     "h-96", -->
+    <!--     "xl:rounded-lg", -->
+    <!--   ]} -->
+    <!--   src={fotoMia} -->
+    <!--   loading="lazy" -->
+    <!--   alt="foto de David Morgade" -->
+    <!--   class="w-full h-48 object-cover rounded-lg xl:h-64 xl:rounded-lg" -->
+    <!--   aspect-ratio="16/9" -->
+    <!--   height={200} -->
+    <!--   widths={[200, 400, 800, 1200, 1600]} -->
+    <!-- /> -->
+    <MainContentLayout>
+        <h3 class="text-2xl font-bold my-4">Sobre mi:</h3>
+        <p class="text-lg my-4">
+            Soy David Morgade, un desarrollador web de Galicia, España. Me
+            apasiona la tecnología y el desarrollo web. Me encanta aprender
+            cosas nuevas y compartir mis conocimientos con los demás. En mi
+            tiempo libre me gusta leer, ver series y películas, y practicar
+            deporte. También me gusta viajar y conocer nuevos lugares. Si
+            quieres saber más sobre mí, no dudes en contactar conmigo.
+        </p>
+        <h3 class="text-2xl font-bold my-4">Habilidades:</h3>
+        <ListSkills />
+        <h3 class="text-2xl font-bold my-4">Educacion:</h3>
+        <ListEducation />
+    </MainContentLayout>
 </BaseLayout>
