@@ -6,28 +6,40 @@ import MainContentLayout from "../layouts/MainContentLayout.astro";
 <BaseLayout>
     <MainContentLayout>
         <h1 class="text-center text-violet-700 font-bold">Newsletter</h1>
-        <h2 class="text-center font-bold text-6xl m-10">
+        <h2
+            class="text-center font-bold md:text-4xl text-3xl lg:text-6xl my-10 sm:mx-10 md:mx-20"
+        >
             Lo ultimo en tecnologia, en espaniol y en tu correo
         </h2>
         <div class="flex flex-col items-center">
-            <form action="" class="flex flex-col items-center sm:flex-row">
+            <form
+                onsubmit="handleSubmit()"
+                class="flex flex-col items-center justify-center sm:flex-row"
+            >
                 <input
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Correo electronico"
-                    class="rounded p-2 mx-2 my-10 text-black border-2 border-gray-300 dark:border-gray-700"
+                    class="rounded p-2 w-full mx-2 text-black border-2 border-gray-300 dark:border-gray-700"
                 />
                 <input
                     type="submit"
                     value="Suscribirme"
-                    class="cursor-pointer bg-sky-600 dark:bg-green-600 hover:bg-green-600 dark:hover:bg-sky-600 text-white p-2 rounded m-2 hover:transform hover:scale-105 transition-all duration-300 ease-in-out"
+                    class="cursor-pointer bg-sky-600 w-full sm:w-auto dark:bg-green-600 hover:bg-green-600 dark:hover:bg-sky-600 text-white p-2 rounded m-2 hover:transform hover:scale-105 transition-all duration-300 ease-in-out"
                 />
             </form>
-            <p class="text-center text-xl w-1/2">
+            <p class="text-center text-xl sm:w-1/2 my-10">
                 Suscribete a la newsletter para recibir las publicaciones del
                 blog directamente en tu correo electronico
             </p>
         </div>
     </MainContentLayout>
 </BaseLayout>
+<script is:inline>
+    function handleSubmit(event) {
+        const notAvailable =
+            "Esta funcionalidad no esta disponible en este momento";
+        alert(notAvailable);
+    }
+</script>

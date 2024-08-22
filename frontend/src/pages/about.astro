@@ -28,8 +28,10 @@ import ListEducation from "../components/about/ListEducation.astro";
     <!--   widths={[200, 400, 800, 1200, 1600]} -->
     <!-- /> -->
     <MainContentLayout>
-        <h3 class="text-2xl font-bold my-4">Sobre mi:</h3>
-        <p class="text-lg my-4">
+        <h3 class="text-2xl font-bold my-8 text-center sm:text-left">
+            Sobre mi:
+        </h3>
+        <p class="sm:text-md md:text-lg my-8 text-center sm:text-left">
             Soy David Morgade, un desarrollador web de Galicia, España. Me
             apasiona la tecnología y el desarrollo web. Me encanta aprender
             cosas nuevas y compartir mis conocimientos con los demás. En mi
@@ -37,9 +39,13 @@ import ListEducation from "../components/about/ListEducation.astro";
             deporte. También me gusta viajar y conocer nuevos lugares. Si
             quieres saber más sobre mí, no dudes en contactar conmigo.
         </p>
-        <h3 class="text-2xl font-bold my-4">Habilidades:</h3>
+        <h3 class="text-2xl font-bold my-8 text-center sm:text-left">
+            Habilidades:
+        </h3>
         <ListSkills />
-        <h3 class="text-2xl font-bold my-4">Educacion:</h3>
+        <h3 class="text-2xl font-bold my-8 text-center sm:text-left">
+            Educacion:
+        </h3>
         <ListEducation />
     </MainContentLayout>
 </BaseLayout>
