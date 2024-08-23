@@ -8,7 +8,7 @@ export const SITE_DESCRIPTION = 'Blog personal de Morga';
 
 const UPLOADS_URL = 'http://localhost:1337';
 
-const PRODUCTION_URL = 'https://codigomorga.es';
+const PRODUCTION_URL = 'https://codigomorga.es/strapi';
 
 const LONG_API_URL = `${UPLOADS_URL}/api/posts?populate[featured_image][fields][0]=name&populate[featured_image][fields][1]=width&populate[featured_image][fields][2]=height&populate[featured_image][fields][3]=url&populate[author][populate][image][fields][0]=name&populate[author][populate][image][fields][1]=width&populate[author][populate][image][fields][2]=height&populate[author][populate][image][fields][3]=url&populate[categories][populate]=true`
 
