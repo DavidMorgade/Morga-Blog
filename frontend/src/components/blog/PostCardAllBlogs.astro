@@ -3,46 +3,47 @@ import Badge from "./Badge.astro";
 import { type SinglePost } from "../../types/postRequest";
 import { Image } from "astro:assets";
 interface Props {
-  post: SinglePost;
-  loading: "lazy" | "eager";
+    post: SinglePost;
+    loading: "lazy" | "eager";
 }
 const { post, loading } = Astro.props;
 import { URL } from "../../consts";
 ---
 
 <li class="my-4 xl:my-0 sm:hover:scale-105 sm:transition-all">
-  <article>
-    <a href={`/post/${post.attributes.slug}/`}>
-      <div class="sm:grid sm:grid-rows-2 sm:gap-8">
-        <div class="">
-          <Image
-            src={`${URL}${post.attributes.featured_image.data.attributes.url}`}
-            alt={post.attributes.featured_image.data.attributes.name}
-            class="object-cover w-full h-48 rounded-lg sm:h-48 sm:rounded-lg"
-            width="250"
-            height="200"
-            loading={loading}
-          />
-        </div>
-        <div class="sm:flex sm:flex-col sm:gap-2">
-          <p class="text-sm text-violet-700 font-bold my-2 sm:my-0">
-            {post.attributes.createdAt.split("T")[0]}
-          </p>
-          <h4 class="text-2xl font-bold">
-            {post.attributes.title}
-          </h4>
-          <p class="text-base text-gray-500">
-            {post.attributes.content.slice(0, 100) + "..."}
-          </p>
-          <div class="flex items-center justify-start gap-2 mt-6">
-            {
-              post.attributes.categories.data.map((category) => (
-                <Badge category={category.attributes.name} />
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </a>
-  </article>
+    <article>
+        <a href={`/post/${post.attributes.slug}/`}>
+            <div class="sm:grid sm:grid-rows-2 sm:gap-8">
+                <div class="">
+                    <Image
+                        src={`/blog/${URL}${post.attributes.featured_image.data.attributes.url}`}
+                        alt={post.attributes.featured_image.data.attributes
+                            .name}
+                        class="object-cover w-full h-48 rounded-lg sm:h-48 sm:rounded-lg"
+                        width="250"
+                        height="200"
+                        loading={loading}
+                    />
+                </div>
+                <div class="sm:flex sm:flex-col sm:gap-2">
+                    <p class="text-sm text-violet-700 font-bold my-2 sm:my-0">
+                        {post.attributes.createdAt.split("T")[0]}
+                    </p>
+                    <h4 class="text-2xl font-bold">
+                        {post.attributes.title}
+                    </h4>
+                    <p class="text-base text-gray-500">
+                        {post.attributes.content.slice(0, 100) + "..."}
+                    </p>
+                    <div class="flex items-center justify-start gap-2 mt-6">
+                        {
+                            post.attributes.categories.data.map((category) => (
+                                <Badge category={category.attributes.name} />
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </a>
+    </article>
 </li>
