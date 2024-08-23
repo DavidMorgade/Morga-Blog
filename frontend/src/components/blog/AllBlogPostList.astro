@@ -11,7 +11,11 @@ const posts = await fetchPosts();
 <ul class="my-8 sm:grid sm:grid-cols-2  sm:gap-8 lg:grid-cols-3 flex flex-col gap-4">
   {
     posts.map((post, index: number) => {
-    if (index < 4) return null;
+    if (index < 4) return (
+    <div>
+        <h3>No existen mas entradas</h3>
+    </div>
+    );
       return (
         <div class=`sm:flex sm:items-center sm:justify-start md:items-center xl:items-start`>
           <PostCardAllBlogs loading="lazy" post={post} />
