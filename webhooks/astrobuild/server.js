@@ -6,6 +6,10 @@ const port = 3009;
 
 app.use(express.json());
 
+app.get('/webhook', (req, res) => {
+  res.status(200).send('Webhook is running');
+});
+
 app.post('/webhook', (req, res) => {
   console.log('Webhook received:', req.body);
 
