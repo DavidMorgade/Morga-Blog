@@ -7,10 +7,8 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
-  // set base url to /strapi and admin url to /strapi/admin
+  url: env('BASE_URL', 'https://codigomorga.es/strapi'),  // Configura la base URL para Strapi
   admin: {
-    url: '/strapi/admin',
+    url: '/strapi/admin',  // Configura la URL de administración
   },
-  // set base url to /strapi
-  url: '/strapi',
 });
