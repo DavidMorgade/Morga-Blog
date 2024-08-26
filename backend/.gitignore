@@ -1,6 +1,7 @@
 ############################
 # OS X
 ############################
+./config/server.js
 
 .DS_Store
 .AppleDouble
