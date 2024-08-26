@@ -7,4 +7,10 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  // set base url to /strapi and admin url to /strapi/admin
+  admin: {
+    url: '/strapi/admin',
+  },
+  // set base url to /strapi
+  url: '/strapi',
 });
