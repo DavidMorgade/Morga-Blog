@@ -6,6 +6,6 @@ echo 'Building app...'
 npm run build
 
 echo 'Deploying files to server...'
-sudo rsync -avz ./dist/* morgade@codigomorga.es:/home/proyectos/frontend/dist
+rsync -avz ./dist/* morgade@codigomorga.es:/home/proyectos/frontend/dist
 
 echo 'Done!'

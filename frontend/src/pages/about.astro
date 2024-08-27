@@ -1,32 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogTopTitle from "../components/BlogTopTitle.astro";
-import { Image } from "astro:assets";
 import MainContentLayout from "../layouts/MainContentLayout.astro";
-import fotoMia from "../images/fotomia.jpg";
 import ListSkills from "../components/about/ListSkills.astro";
 import ListEducation from "../components/about/ListEducation.astro";
 ---
 
 <BaseLayout>
     <BlogTopTitle title="David Morgade" />
-    <!-- <Image -->
-    <!--   class:list={[ -->
-    <!--     "w-full", -->
-    <!--     "", -->
-    <!--     "object-fit", -->
-    <!--     "rounded-lg", -->
-    <!--     "h-96", -->
-    <!--     "xl:rounded-lg", -->
-    <!--   ]} -->
-    <!--   src={fotoMia} -->
-    <!--   loading="lazy" -->
-    <!--   alt="foto de David Morgade" -->
-    <!--   class="w-full h-48 object-cover rounded-lg xl:h-64 xl:rounded-lg" -->
-    <!--   aspect-ratio="16/9" -->
-    <!--   height={200} -->
-    <!--   widths={[200, 400, 800, 1200, 1600]} -->
-    <!-- /> -->
     <MainContentLayout>
         <h3 class="text-2xl font-bold my-8 text-center sm:text-left">
             Sobre mi:
