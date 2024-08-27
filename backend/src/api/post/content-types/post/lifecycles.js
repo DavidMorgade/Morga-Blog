@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 const route = '/home/proyectos/backend/deploy-script.sh';
 
 module.exports = {
-  async afterUpdate(event) {
+  async beforeUpdate(event) {
     // Ejecuta el script bash al actualizar una entrada
     exec(route, (error, stdout, stderr) => {
       console.log('Ejecutando script al actualizar una entrada')
@@ -18,7 +18,7 @@ module.exports = {
       }
     });
   },
-  async afterCreate(event) {
+  async beforeCreate(event) {
     // Ejecuta el script bash al crear una entrada
     exec(route, (error, stdout, stderr) => {
       console.log('Ejecutando script al crear una entrada')
@@ -33,7 +33,7 @@ module.exports = {
       }
     });
   },
-  async afterDelete(event) {
+  async beforeDelete(event) {
     // Ejecuta el script bash al eliminar una entrada
     exec(route, (error, stdout, stderr) => {
       console.log('Ejecutando script al eliminar una entrada')
@@ -47,5 +47,6 @@ module.exports = {
         console.error(`Errores del script: ${stderr}`);
       }
     });
-  }
+  },
+
 }
