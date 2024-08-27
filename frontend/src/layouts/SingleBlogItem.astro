@@ -1,7 +1,7 @@
 ---
 import { marked } from "marked";
 import { format } from "date-fns";
-import { URL, URL_LONG } from "../consts";
+import { URL } from "../consts";
 
 const { post } = Astro.props;
 
@@ -13,15 +13,6 @@ const {
     reading_time,
     publishedAt,
 } = post.attributes;
-
-console.log(
-    featured_image,
-    title,
-    render_content,
-    author,
-    reading_time,
-    publishedAt,
-);
 ---
 
 <div class="text-black dark:text-white container my-16 sm:mx-auto">
