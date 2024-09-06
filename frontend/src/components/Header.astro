@@ -1,28 +1,29 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
 import Hamburger from "./Hamburger.astro";
 import Modal from "../components/header/Modal.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
+import { Image } from "astro:assets";
+import logoCM from "../images/logoCM.svg";
 ---
 
 <header
     class="bg-white dark:bg-slate-950 dark:text-white px-2 sm:px-6 xl:px-16"
 >
     <nav class="flex items-center justify-between p-6">
-        <h2 class="m-0 flex items-center">
-            <a class="font-semibold text-lg" href="/blog">{SITE_TITLE}</a>
-        </h2>
+        <a href="/blog">
+            <Image src={logoCM} alt="Codigo morga logo" class="w-20 md:w-36" />
+        </a>
         <Modal />
         <div
             class="header-links sm:gap-8 md:gap-10 xl:gap-16 items-center hidden sm:flex"
         >
-            <HeaderLink href="/">Blog</HeaderLink>
+            <HeaderLink href="">Blog</HeaderLink>
             <HeaderLink href="/about">Sobre mi</HeaderLink>
             <HeaderLink href="/newsletter">Newsletter</HeaderLink>
             <a
                 target="_blank"
-                href="https://codigomorga.es/portfolio"
+                href="https://www.codigomorga.es/portfolio"
                 class="font-light text-lg hover:text-sky-600 dark:hover:text-green-600 hover:scale-110 hover:font-bold transition-all"
                 >Porfolio</a
             >

@@ -28,15 +28,17 @@ const {
         <h1 class="text-center text-4xl leading-tight my-4 font-bold">
             {title}
         </h1>
-        <div class="flex justify-center items-center space-x-2">
-            <span class="flex space-x-2 items-center overflow-hidden">
+        <div
+            class="flex justify-center items-center space-x-2 flex-col sm:flex-row md:gap-3"
+        >
+            <span class="rounded-full flex space-x-2 items-center gap-6">
                 <img
-                    class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                    class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
                     alt="author picture"
                     src=`${URL}${author?.data?.attributes?.image?.data?.attributes?.url}`
                 />
-                <p class="font-medium text-xs text-gray-600 cursor-pointer">
-                    {author?.name}
+                <p class="dark:text-white text-black cursor-pointer">
+                    David Morgade
                 </p>
             </span>
             <span>&middot;</span>
