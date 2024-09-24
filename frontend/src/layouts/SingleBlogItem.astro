@@ -24,7 +24,7 @@ const {
             Volver
         </a>
     </div>
-    <div class="my-4 text-center">
+    <div class="my-4 mx-2 text-center">
         <h1 class="text-center text-4xl leading-tight my-4 font-bold">
             {title}
         </h1>
@@ -44,10 +44,10 @@ const {
             <span>&middot;</span>
             <span>{format(new Date(publishedAt), "MM/dd/yyyy")}</span>
             <span>&middot;</span>
-            <span>{reading_time} minutes</span>
+            <span>{reading_time} minutos</span>
         </div>
     </div>
-    <div class="rounded-md h-56 w-full overflow-hidden">
+    <div class="rounded-md h-96 w-full overflow-hidden">
         <img
             class="object-cover w-full h-full"
             src=`${URL}${featured_image.data.attributes.url}`
@@ -65,7 +65,7 @@ const {
 
     /* Headers */
     article .rich-text h1 {
-        @apply text-4xl font-bold mb-8;
+        @apply text-4xl font-black my-8 text-center;
     }
 
     article .rich-text h2 {
